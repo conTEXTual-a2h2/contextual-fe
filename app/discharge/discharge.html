@@ -1,0 +1,106 @@
+<div>
+  <form class="display-flex flex-col discharge-form" name="dischargeForm" style="padding-bottom: 30px;">
+    <div class="discharge-form__group">
+      <label for="id" class="discharge-form__label" ng-class="{'active-label':idFocused}">Patient ID</label>
+      <input class="discharge-form__input" ng-class="{'active-input': idFocused}" type="text" name="id" ng-focus="idFocused=true"
+        ng-blur="idFocused=false" ng-model="discharge.form.id">
+    </div>
+    <div class="discharge-form__group discharge-form__group--inline">
+      <div class="discharge-form__group  flex-item">
+        <label for="firstName" class="discharge-form__label" ng-class="{'active-label':fnFocused}">First Name</label>
+        <input class="discharge-form__input" ng-class="{'active-input': fnFocused}" type="text" name="firstName" ng-model="discharge.form.firstName"
+          ng-focus="fnFocused=true" ng-blur="fnFocused=false">
+      </div>
+      <div class="discharge-form__group flex-item">
+        <label for="lastName" class="discharge-form__label" ng-class="{'active-label':lnFocused}">Last Name</label>
+        <input class="discharge-form__input" ng-class="{'active-input': lnFocused}" type="text" name="lastName" ng-focus="lnFocused=true"
+          ng-blur="lnFocused=false" ng-model="discharge.form.lastName">
+      </div>
+    </div>
+    <div class="discharge-form__group flex-item">
+      <label for="phoneNumber" class="discharge-form__label" ng-class="{'active-label':telFocused}">Phone Number</label>
+      <input class="discharge-form__input" ng-class="{'active-input': telFocused}" type="tel" name="phoneNumber" placeholder="Phone number"
+        ng-focus="telFocused=true" ng-blur="telFocused=false" ng-model="discharge.form.phoneNumber">
+    </div>
+    <div class="discharge-form__group">
+      <label for="DOB" class="discharge-form__label" ng-class="{'active-label':dobFocused}">Date of Birth </label>
+      <input class="discharge-form__input" ng-class="{'active-input': dobFocused}" type="date" name="DOB" placeholder="Date of birth"
+        ng-model="discharge.form.birthDate" ng-focus="dobFocused=true" ng-blur="dobFocused=flase">
+    </div>
+    <div class="discharge-form__group discharge-form__group--inline">
+      <div class="discharge-form__group flex-item">
+        <label for="startDate" class="discharge-form__label" ng-class="{'active-label':sdFocused}">Start Date </label>
+        <input class="discharge-form__input" ng-class="{'active-input': sdFocused}" type="date" name="StartDate" placeholder="Start date"
+          ng-focus="sdFocused=true" ng-blur="sdFocused=false" ng-model="discharge.form.startDate">
+      </div>
+      <div class="discharge-form__group flex-item">
+        <label for="endDate" class="discharge-form__label" ng-class="{'active-label':edFocused}">End Date </label>
+        <input class="discharge-form__input" ng-class="{'active-input': edFocused}" type="date" name="EndDate" placeholder="End date"
+          ng-focus="edFocused=true" ng-blur="edFocused=false" ng-model="discharge.form.endDate">
+      </div>
+    </div>
+    <div class="discharge-form__group">
+      <label for="discharge" class="discharge-form__label" ng-class="{'active-label':dxFocused || taFocused}">Discharge Diagnosis</label>
+      <select class="md-margin-bottom" ng-class="{'active-select': dxFocused}" ng-change="discharge.instructions()" ng-focus="dxFocused=true"
+        ng-blur="dxFocused=false" ng-model="discharge.form.diagnosis" ng-options="item for item in discharge.diagnosis">
+              </select>
+
+      <textarea class="discharge-form__textarea" col="50" ng-maxlength="300" ng-class="{'active-textarea':taFocused}" type="text"
+        name="textMessage" placeholder="Message to be sent to patient" ng-focus="taFocused=true" ng-blur="taFocused=false"
+        ng-model="discharge.form.textMessage"></textarea>
+      <p style="color: red;" ng-show="discharge.form.textMessage.length > 300">
+        Message length cannot exceed 300 characters.
+      </p>
+    </div>
+    <div class="discharge-form__group">
+      <label for="days" class="discharge-form__label discharge-form__label--bold">Days to send messages</label>
+      <!--<label for="All">
+          <input type="checkbox" name="All" ng-change="discharge.checkAllFunc()" ng-model="discharge.checkAll">
+          All
+      </label>-->
+      <label for="Sunday">
+        <input type="checkbox" name="Sunday" ng-true-value="true" ng-true-false="false" ng-model="discharge.form.days.sunday">
+        Sunday
+      </label>
+      <label for="Monday">
+        <input type="checkbox" name="Monday" ng-true-value="true" ng-true-false="false" ng-model="discharge.form.days.monday">
+        Monday
+      </label>
+      <label for="Tuesday">
+        <input type="checkbox" name="Tuesday" ng-true-value="true" ng-true-false="false" ng-model="discharge.form.days.tuesday">
+        Tuesday
+      </label>
+      <label for="Wednesday">
+        <input type="checkbox" name="Wednesday" ng-true-value="true" ng-true-false="false" ng-model="discharge.form.days.wednesday">
+        Wednesday
+      </label>
+      <label for="Thursday">
+        <input type="checkbox" name="Thursday" ng-true-value="true" ng-true-false="false" ng-model="discharge.form.days.thursday">
+        Thursday
+      </label>
+      <label for="Friday">
+        <input type="checkbox" name="Friday" ng-true-value="true" ng-true-false="false" ng-model="discharge.form.days.friday">
+        Friday
+      </label>
+    </div>
+    <div class="discharge-form__group">
+      <label for="time" class="discharge-form__label discharge-form__label--bold">Times to send message</label>
+      <label for="Morning">
+      <input type="radio" name="Morning">
+      Morning (6am)
+      </label>
+      <label for="Afternoon">
+        <input type="radio" name="Afternoon">
+        Afternoon (1pm)
+      </label>
+      <label for="Evening">
+      <input type="radio" name="Evening">
+      Evening (6pm)
+    </label>
+    </div>
+    <button type="submit" class="btn" ng-click="discharge.submitForm()" ng-disabled="discharge.form.textMessage.length > 300">
+      <div ng-if="!discharge.submitting">Submit</div>
+      <img ng-if="discharge.submitting" src="./assets/ring.svg" style="width: 30px; height: 30px;">
+    </button>
+  </form>
+</div>

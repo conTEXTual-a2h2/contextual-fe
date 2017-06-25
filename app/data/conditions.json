@@ -1,0 +1,31 @@
+//'ALL', 'COPD', 'CHF', 'Diabetes', 'Post Surgery'
+[
+  {
+    "COPD": [
+      "step 1 for COPD",
+      "step 2 for COPD",
+      "step 3 for COPD"
+    ]
+  },
+  {
+    "CHF": [
+      "step 1 for CHF",
+      "step 2 for CHF",
+      "step 3 for CHF"
+    ]
+  },
+  {
+    "Diabetes": [
+      "step 1 for Diabetes",
+      "step 2 for Diabetes",
+      "step 3 for Diabetes"
+    ]
+  },
+  {
+    "postSurgery": [
+      "step 1 for postSurgery",
+      "step 2 for postSurgery",
+      "step 3 for postSurgery"
+    ]
+  }
+]

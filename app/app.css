@@ -1,0 +1,156 @@
+/* app css stylesheet */
+:root {
+  --primary-color: #512DA8;
+}
+
+.site-header {
+  text-align: center;
+    font-size: 34px;
+    margin: 55px 0px;
+    color: var(--primary-color);
+}
+
+select:focus {
+  outline: none;
+}
+
+select {
+  height: 40px;
+  background: #d0d0d0;
+}
+
+.display-flex {
+  display: flex;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+.flex-row {
+  flex-direction: row;
+}
+
+.flex-item {
+  flex: 1;
+}
+
+.absolute-center {
+  justify-content: center;
+  align-items: center;
+}
+
+.md-margin-bottom {
+  margin-bottom: 15px;
+}
+
+.btn {
+	  min-height: 52px;
+    min-width: 88px;
+    width: 240px;
+    max-width: 260px;
+    line-height: 36px;
+    user-select: none;
+    outline: none;
+    border: 1px;
+    border-radius: 3px;
+    box-sizing: border-box;
+    padding: 0px 6px;
+    margin: 0px auto;
+    color: #ffffff;
+    background-color: var(--primary-color);
+    white-space: nowrap;
+    text-transform: uppercase;
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.discharge-form {
+  width: 80%;
+  max-width: 850px;
+  margin: 0 auto;
+}
+
+.discharge-form__group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 45px;
+}
+
+.discharge-form__group--inline {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 0px;
+}
+
+@media only screen and (min-width: 600px) {
+	.discharge-form__group--inline {
+		flex-direction: row;
+    margin-bottom: 45px;
+	}
+
+  .discharge-form__group--inline .discharge-form__group {
+    margin-left: 0px;
+    margin-bottom: 0px;
+  }
+
+  .discharge-form__group--inline .discharge-form__group:nth-child(2)  {
+    margin-left: 15px;
+  }
+}
+
+.discharge-form__label {
+  color: #999999;
+  font-weight: bold;
+  transition: color 0.3s linear;
+}
+
+.discharge-form__label--bold {
+  font-weight: bold;
+}
+
+.active-label {
+  color: var(--primary-color);
+}
+
+.discharge-form__input {
+  outline: none;
+	border: 0px;
+	min-height: 36px;
+	border-bottom-width: 1.5px;
+	border-bottom-style: solid;
+	border-bottom-color: #999999;
+	color: #000000;
+	background-color: transparent;
+	z-index: 10;
+	transition: border-bottom-color 0.3s linear;
+}
+
+.active-input {
+  border-bottom-color: var(--primary-color);
+}
+
+.active-select {
+  border-color: var(--primary-color);
+}
+
+.discharge-form__textarea {
+  outline: none;
+	border: 0px;
+	min-height: 130px;
+	border-width: 1px;
+	border-style: solid;
+	border-color: #999999;
+	color: #000000;
+	background-color: transparent;
+	z-index: 10;
+	transition: color 0.3s linear;
+}
+
+.active-textarea {
+  border-color: var(--primary-color);
+}
+
+.ng-invalid-maxlength {
+  border-color: red;
+}
